@@ -55,4 +55,20 @@
   
 - 完全清除一个已安装的包裹。和 remove 不同的是，remove 只是删掉数据和可执行文件，purge 另外还删除所有的配制文件
 
-  `dpkg -P <package>`
+  `dpkg -P <package.deb>`
+
+- 列出<package>安装的软件包安装的所有文件（软件名称可通过dpkg -I命令查看，其中-L等价于--listfiles）
+  
+  `dpkg -L <package.deb>`
+  
+- 查看<package>软件包的信息（软件名称可通过dpkg -I命令查看，其中-l等价于--list）
+  
+  `dpkg -l <package.deb>`
+  
+- 显示已安装包裹的详细信息。同时请看 apt-cache 显示 Debian 存档中的包裹信息，以及 dpkg -I 来显示从一个 .deb 文件中提取的包裹信息。（软件名称可通过dpkg -I命令查看，其中-s等价于--status）
+  
+  `dpkg -s <package.deb>`
+  
+- 重新配制一个已经安装的包裹，如果它使用的是 debconf (debconf 为包裹安装提供了一个统一的配制界面)
+  
+  `dpkg -reconfigure <package.deb>`
