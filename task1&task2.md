@@ -2,11 +2,11 @@
 主要讲述了linux的发展历程和优势
 - 网址导航：https://github.com/datawhalechina/team-learning-program/blob/master/Linux/1.什么是Linux.md
 
-## 什么是linux
+## 1.1 什么是linux
 Linux，全称为GNU/Linux，是一种免费使用和自由传播的类UNIX操作系统
 我们常说的Linux，指的是Linux内核，一个基于POSIX的多用户、多任务、支持多线程和多CPU的操作系统
 
-## linux的优点
+## 1.2 linux的优点
 - 开源免费：完全免费的操作系统，且源代码开放，任何人都可以随意修改
 - 多任务：可以使多个程序同时独立运行
 - 多用户：每个用户对于自己的文件设备有特殊的权利，用户之间使用互不影响
@@ -16,7 +16,7 @@ Linux，全称为GNU/Linux，是一种免费使用和自由传播的类UNIX操�
 - 方便：在线安装软件包十分方便，一行命令即可，同时配置环境也很快捷
 - 开源软件多：大多数开源软件的首要适配平台都是linux
 
-## 发展历程
+## 1.3 发展历程
 20世纪80年代，计算机硬件的性能不断提高，PC的市场不断扩大，当时可供计算机选用的操作系统主要有Unix、DOS和macOC这几种。
 
 Unix价格昂贵，不能运行于PC；DOS显得简陋，且源代码被软件厂商严格保密；MacOS是一种专门用于苹果计算机的操作系统。此时，计算机科学领域迫切需要一个更加完善、强大、廉价和完全开放的操作系统。由于供教学使用的典型操作系统很少，因此当时在荷兰当教授的美国人AndrewS.Tanenbaum编写了一个操作系统，名为MINIX，为了向学生讲述操作系统内部工作原理。
@@ -25,7 +25,7 @@ MINIX虽然很好，但只是一个用于教学目的的简单操作系统，而
 
 在吸收了MINIX精华的基础上，Linus于1991年写出了属于自己的Linux操作系统，版本为Linux0.01，是Linux时代开始的标志。他利用Unix的核心，去除繁杂的核心程序，改写成适用于一般计算机的x86系统，并放在网络上供大家下载，1994年推出完整的核心Version1.0，至此，Linux逐渐成为功能完善、稳定的操作系统，并被广泛用
 
-## 常用发行版
+## 1.4 常用发行版
 - Debian：老牌发行版，非常稳定，适合用于服务器。
 
 - Ubuntu：是Debian的一款衍生版，侧重于它在这个市场的应用，在服务器、云计算、甚至一些运行Ubuntu Linux的移动设备上很常见。于2004年9月首次公布的。属于热门发行版之一，因其图形界面开发较完善以及良好的社区支持，很受初接触Linux的人群青睐。
@@ -73,6 +73,7 @@ MINIX虽然很好，但只是一个用于教学目的的简单操作系统，而
 - 基于 Debian 操作系统 (UBUNTU) 的 DEB 软件包管理工具－ Dpkg，全称为 Debian Package
 - 是一个可以安装、构建、删除及管理 Debian 软件包的命令行工具，用来制作 Debian 包的工具，同时也可以查看、解压 Debian 包
 下面是一些dpkg的普通用法
+
 - 安装一个Debian安装包（其中-i等价于--install）
 
   `dpkg -i <package.deb>`
@@ -108,3 +109,104 @@ MINIX虽然很好，但只是一个用于教学目的的简单操作系统，而
 - 重新配制一个已经安装的包裹，如果它使用的是 debconf (debconf 为包裹安装提供了一个统一的配制界面)
   
   `dpkg -reconfigure <package.deb>`
+
+ #### rpm
+ - rpm是 redhat 、fedora、suse 的格式，全称为Redhat PackageManager ，是由Redhat公司提出的用于管理Linux下软件包的软件
+ - Linux安装时，除了几个核心模块以外，其余几乎所有的模块均通过RPM完成安装
+ 下面是一些rmp的使用指令
+ - 安装需要的包文件，-iv 在安装过程中显示正在安装的文件信息，-ivh 在安装过程中显示正在安装的文件信息及安装进度
+ 
+  `rpm -i <package.rpm>`
+ 
+ 查询指令：
+
+- a 查询所有已经安装的包以下两个附加命令用于查询安装包的信息
+- i 显示安装包的信息
+- l 显示安装包中的所有文件被安装到哪些目录下
+- s 显示安装包中的所有文件状态及被安装到哪些目录下
+- p 查询的是安装包的信息
+- f 查询的是已安装的某文件信息
+
+列出需要升级的包
+
+  `rpm -U`
+  
+升级 example.rpm 软件包
+  
+  `rpm -Uvh example.rpm`
+  
+列出需要验证的包
+  
+  `rpm -V`
+  
+## 2.4 编译源码安装
+源代码安装软件的优点如下
+- 可以获得最新的软件，及时修复bug
+- 根据用户的需求，灵活定制软件功能
+1. tar -xzvf soft.tar.gz #解压一般会生成一个soft目录
+2. ./configure #检查环境变量及配置编译选项
+3. make #源代码编译成二进制文件
+4. make install #将make编译出来的文件安装到指定位置(或默认位置) 卸载：make uninstall 或 手动删除，由于软件可能将文件分散地安装在系统的多个目录中，往往很难把它删除干净， 最好在编译前进行配置，指定软件将要安装到目标路径：./configure --prefix=目录名，这样可以使用“rm -rf 软件目录名”命令来进行干净彻底的卸载
+
+## 2.5 在线安装
+## 2.5.1 apt包管理
+由于操作系统中软件包存在复杂的依赖关系，为了解决软件包的依赖性问题和获取问题，APT顺势出现了。 APT 是 Ubuntu Linux 中的命令行软件包管理工具，用于获取、安装、编译、卸载和查询 Deb 软件包，以及检查软件包的依赖关系
+apt常用命令如下：
+- 更新本地索引，即更新/var/lib/apt/lists 里边的内容
+  
+  `sudo apt-get update`
+  
+- 更新所有软件包
+  
+  `sudo apt-get upgrade `
+  
+- 安装软件
+  
+  `sudo apt-get install xx`
+  
+- 卸载包
+  
+  `sudo apt-get remove xx`
+  
+- 卸载并彻底清除
+  
+  `sudo apt-get remove --purge name`
+  
+- 清理下载文件的存档
+  
+  `sudo apt-get clean`
+  
+## 2.5.2 换源
+- 在线安装，如apt包管理的软件仓库地址可能在国外，国内连接速度较慢。所以可以将软件仓库地址改为国内源码库
+- Ubuntu 的软件源配置文件是 /etc/apt/sources.list。将系统自带的该文件做个备份，将该文件替换为下面内容，即可使用 TUNA 的软件源镜像。
+
+用gedit命令打开sources.list文件
+  `sudo gedit /etc/apt/sources.list`
+
+将内容改为下面：
+  
+  ```
+  # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+  deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+  deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+  deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+  deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+
+  # 预发布软件源，不建议启用
+  # deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+  ```
+  
+## 2.6 开源软件
+### 2.6.1 效率工具
+#### 2.6.1.1 搜狗输入法
+- 安装fcitx
+  
+  `sudo apt-get install fcitx`
+  
+- 进入搜狗输入法官网，选择linux版下载deb文件(ubuntu系统)，网址导航：https://pinyin.sogou.com/linux/?r=pinyin
+按照教程来即可，注意在安装搜狗的时候，终端要先切换到安装包所在路径，如果提醒缺少依赖，
