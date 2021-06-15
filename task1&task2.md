@@ -209,4 +209,8 @@ apt常用命令如下：
   `sudo apt-get install fcitx`
   
 - 进入搜狗输入法官网，选择linux版下载deb文件(ubuntu系统)，网址导航：https://pinyin.sogou.com/linux/?r=pinyin
-按照教程来即可，注意在安装搜狗的时候，终端要先切换到安装包所在路径，如果提醒缺少依赖，
+按照教程来即可，注意在安装搜狗的时候，终端要先切换到安装包所在路径，如果提醒缺少依赖，输入如下命令：
+  
+  `sudo apt -f install`
+  
+
