@@ -264,7 +264,7 @@ Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错�
   
   `sudo apt-get install libncurses5-dev python-dev python3-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev`
   
-其中libbonoboui2-dev提示无法找到位置，考虑增加镜像源，文件路径为/etc/apt/sources.list，一般情况下，该文件是只读的，直接使用vi或getit打开修改无法抱错，所以需要先获得root权限
+其中libbonoboui2-dev提示无法找到位置，考虑增加镜像源，文件路径为/etc/apt/sources.list，一般情况下，该文件是只读的，直接使用vi或getit打开，无法修改，所以需要先获得root权限
   
   `sudo getit /etc/apt/sources.list`
   
@@ -278,3 +278,26 @@ Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错�
   
 然后重新安装libbonoboui2-dev，成功
 
+- 配置与安装
+
+注意，这个命令要进入vim路径下执行
+  
+  ```
+  sudo ./configure --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-python3interp --enable-luainterp --enable-    cscope --enable-gui=gtk3 --enable-perlinterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu/ --prefix=/usr/local/vim8
+  ```
+  
+- --with-features=huge：支持最大特性
+- --enable-rubyinterp：打开对 ruby 编写的插件的支持 
+- --enable-pythoninterp：打开对 python 编写的插件的支持 
+- --enable-python3interp：打开对 python3 编写的插件的支持 
+- --enable-luainterp：打开对 lua 编写的插件的支持 
+- --enable-perlinterp：打开对 perl 编写的插件的支持 
+- --enable-multibyte：打开多字节支持，可以在 Vim 中输入中文 
+- --enable-cscope：打开对cscope的支持 
+- --enable-gui=gtk3 表示生成采用 GNOME3 风格的 gvim 
+- --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ 指定 python 路径 
+- --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu/ 指定 python3路径(这里可以根据自己的版本做更改) 
+- --prefix=/usr/local/vim8：指定将要安装到的路径
+  
+## 2.7 常用终端快捷键
+<img width="508" alt="image" src="https://user-images.githubusercontent.com/48283877/122026604-f45b2a00-cdfc-11eb-953c-02a36ec06b63.png">
