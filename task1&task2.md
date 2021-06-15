@@ -252,3 +252,29 @@ Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理�
   
   `sudo apt-get install git`
   
+#### 2.6.2.2 vim
+Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。和Emacs并列成为类Unix系统用户最喜欢的编辑器
+- 首先将vim的源码克隆下来，这里因为github可能很慢，使用码云的镜像
+  
+  `git clone https://gitee.com/mirrors/vim.git`
+  
+- 安装gcc和各依赖库
+  
+  `sudo apt-get install gcc`
+  
+  `sudo apt-get install libncurses5-dev python-dev python3-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev`
+  
+其中libbonoboui2-dev提示无法找到位置，考虑增加镜像源，文件路径为/etc/apt/sources.list，一般情况下，该文件是只读的，直接使用vi或getit打开修改无法抱错，所以需要先获得root权限
+  
+  `sudo getit /etc/apt/sources.list`
+  
+添加镜像源并保存
+  
+  `deb http://archive.ubuntu.com/ubuntu/trusty main universe restricted multiverse‘
+  
+更新镜像源头
+
+  `sudo apt-get update`
+  
+然后重新安装libbonoboui2-dev，成功
+
