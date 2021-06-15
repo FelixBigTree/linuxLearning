@@ -209,8 +209,46 @@ apt常用命令如下：
   `sudo apt-get install fcitx`
   
 - 进入搜狗输入法官网，选择linux版下载deb文件(ubuntu系统)，网址导航：https://pinyin.sogou.com/linux/?r=pinyin
-按照教程来即可，注意在安装搜狗的时候，终端要先切换到安装包所在路径，如果提醒缺少依赖，输入如下命令：
+按照教程来即可，注意在安装搜狗的时候，终端要先切换到安装包所在路径，输入命令：
+  
+  `sudo dpkg -i sogoupinyin_版本号_amd64.deb`
+  
+- 如果提醒缺少依赖，输入如下命令：
   
   `sudo apt -f install`
   
+#### 2.6.1.1 Terminator
+- terminator可以在同一个窗口分割出多个终端，每个终端都是独立的，适合大屏使用
+  
+  `sudo apt-get install terminator`
+  
+- 设置默认Terminal为Terminator
+  
+  ```
+  gsettings set org.gnome.desktop.default-applications.terminal exec   /usr/bin/terminator
+  gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
+  ```
 
+常用快捷键如下
+- Ctrl+Alt+T 打开终端
+- Ctrl+l 相当于clear，即清屏
+- Shift+Ctrl+T 打开新的标签页
+- Shift+Ctrl+W 关闭标签页
+- Shift+Ctrl+C 复制
+- Shift+Ctrl+V 粘贴
+- Shift+Ctrl+N 打开新的终端窗口
+- Shift+Ctrl+o 上下拆分屏幕
+- Shift+Ctrl+e 左右拆分屏幕
+- Shift+Ctrl+w 关闭当前窗口
+- Shift+Ctrl+q 关闭整个终端
+- F11 全屏切换
+- Ctrl + Page Down/ Page Up 切换标签页
+
+  
+### 2.6.2 开发工具
+#### 2.6.2.1 git
+Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目
+- 命令行安装
+  
+  `sudo apt-get install git`
+  
