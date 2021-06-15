@@ -270,7 +270,7 @@ Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错�
   
 添加镜像源并保存
   
-  `deb http://archive.ubuntu.com/ubuntu/trusty main universe restricted multiverse‘
+  `deb http://archive.ubuntu.com/ubuntu/trusty main universe restricted multiverse
   
 更新镜像源头
 
