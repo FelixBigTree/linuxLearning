@@ -37,6 +37,8 @@
 ## 2. 用户ID与组ID
 在Linux系统中，并不是通过用户名来识别用户的，而是通过用户ID来判断是哪个用户的，用户 datawhale 会被赋予一个名为Datawhale 的用户组，且成为该新建用户组的唯一成员，同时UID和GID会被分别写入/etc/passwd和/etc/group中
 
+### 2.1 用户的增删修改
+
   - 为了演示，删除datawhale组
 
     `sudo groupdel datawhale`
@@ -66,4 +68,87 @@
 可以发现，uid递增了1
 
 
+另外，系统管理员的UID为0
 
+    `grep root /etc/passwd`
+    
+<img width="544" alt="image" src="https://user-images.githubusercontent.com/48283877/122247805-361dca80-cefa-11eb-9fb0-8bc925293c7e.png">
+
+
+- 删除用户
+
+    `userdel 选项 用户名`
+    
+例如，删除用户datawhale1
+
+    `sudo userdel datawhale1`
+    
+<img width="410" alt="image" src="https://user-images.githubusercontent.com/48283877/122248523-b3493f80-cefa-11eb-951e-8901ffe49d9f.png">
+
+
+- 修改用户
+
+    `usermod 选项 用户名`
+    
+<img width="989" alt="image" src="https://user-images.githubusercontent.com/48283877/122248711-d83db280-cefa-11eb-9070-f45cd9212749.png">
+
+
+- 修改用户密码
+
+    `passwd 选项 用户名`
+    
+<img width="941" alt="image" src="https://user-images.githubusercontent.com/48283877/122248875-f99e9e80-cefa-11eb-9ca0-808b83f66e20.png">
+
+
+### 2.2 用户组管理
+- 添加用户组
+
+    `groupadd 选项 用户组`
+
+    例如，新增一个data用户组
+        `sudo groupadd data`
+
+<img width="379" alt="image" src="https://user-images.githubusercontent.com/48283877/122249549-89dce380-cefb-11eb-86a2-1ede7ad18f29.png">
+
+- 删除用户组
+
+    `groupdel 组名`
+    
+不能使用 groupdel 命令随意删除群组。此命令仅适用于删除那些 "不是任何用户初始组" 的群组，换句话说，如果有群组还是某用户的初始群组，则无法使用 groupdel 命令成功删除。倘若该群组中仍包括某些用户，则必须先删除这些用户后，方能删除群组
+
+打个比方，往组data添加两个用户
+
+    ```
+    sudo useradd data1
+    sudo useradd data2
+    sudo gpasswd -a data1 data
+    sudo gpasswd -a data2 data
+    ```
+    
+<img width="505" alt="image" src="https://user-images.githubusercontent.com/48283877/122250335-2901db00-cefc-11eb-9e87-a35c92d93133.png">
+
+
+此时，如果删除data组
+    
+    `sudo groupdel data`
+
+<img width="520" alt="image" src="https://user-images.githubusercontent.com/48283877/122250611-61a1b480-cefc-11eb-808e-e4ee19371e3c.png">
+
+尴尬，好吧，组是可以删除的，只是在使用删除组的时候要养成好的习惯。先删除用户后再删除组！！！
+
+
+- 修改用户组属性
+
+    `groupmod 选项 用户组`
+    
+<img width="276" alt="image" src="https://user-images.githubusercontent.com/48283877/122250877-a0376f00-cefc-11eb-8d24-c4444b02156c.png">
+
+- 切换用户组
+
+    `newgrp 目标用户组`
+    
+newgrp 指令类似 login 指令:**newgrp 命令可以从用户的附加组中选择一个群组，作为用户新的初始组。
+**欲使用 newgrp 指令切换群组，用户必须是该群组的用户，否则将无法登入指定的群组。
+单一用户要同时隶属多个群组，需利用交替用户的设置。
+若不指定群组名称，则 newgrp 指令会登入该用户名称的预设群组
+    
