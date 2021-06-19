@@ -76,14 +76,70 @@ linux中一共有六种文件类型，分别是普通文件、目录文件、链
   
   其中，选项参数如下
   - -a： 全部文件，连同隐藏文件（开头为.的文件）一起列出
-    ![Uploading image.png…]()
+<img width="512" alt="image" src="https://user-images.githubusercontent.com/48283877/122643265-7458fb00-d141-11eb-93d6-d8b5fe8b952d.png">
 
   - -d： 仅仅列出目录本身，而不是列出目录内的文件数据
-    ![Uploading image.png…]()
+<img width="293" alt="image" src="https://user-images.githubusercontent.com/48283877/122643275-85097100-d141-11eb-8ac8-c1ee80eee550.png">
 
   - -l： 长数据串列出，包含文件的属性与权限等等
-    ![Uploading image.png…]()
-地方
+<img width="462" alt="image" src="https://user-images.githubusercontent.com/48283877/122643284-8fc40600-d141-11eb-8e3e-6b387cecbbdd.png">
+
+- cd
+
+  `cd 地址`
+  
+  切换路径
+  
+- pwd
+
+  查看当前路径
+  
+  其中，选项参数如下
+  - -P ：显示出确实的路径，而非使用连结 (link) 路径
+
+    `pwd -P`
+    
+- mkdir
+
+  创建一个新目录
+  
+  `mkdir 选项 目录名称`
+  
+  其中，选项参数如下
+  - -m：配置文件权限
+  - -p：直接将所需要的目录（包含上一级目录递归创建）
+  
+  例如，在桌面创建一个新目录bag
+  
+  `cd /home/felix/桌面`
+  `mkdir -p bag`
+  
+<img width="358" alt="image" src="https://user-images.githubusercontent.com/48283877/122643508-bafb2500-d142-11eb-8f6e-31316ec9ba3f.png">
+
+- rmdir
+
+  删除目录
+  
+  `rmdir 选项 目录名称`
+  
+  其中，选项参数如下
+  - **-p ：**连同上一级『空的』目录也一起删除
+
+  例如，删除在桌面的bag目录
+  
+  `rmdir bag`
+  
+- cp
+
+  复制文件
+  
+  `cp 选项  源文件 目标地址/文件`
+  
+  其中，选项参数如下
+  
+  <img width="666" alt="image" src="https://user-images.githubusercontent.com/48283877/122643724-05c96c80-d144-11eb-9b9d-b15f41881385.png">
+
+
 
 
 
