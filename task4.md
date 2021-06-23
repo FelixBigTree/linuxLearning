@@ -140,8 +140,46 @@ linux中一共有六种文件类型，分别是普通文件、目录文件、链
   <img width="666" alt="image" src="https://user-images.githubusercontent.com/48283877/122643724-05c96c80-d144-11eb-9b9d-b15f41881385.png">
 
 
+- rm
 
+  删除文件
+  
+  `rm 选项 文件或目录`
+  
+  其中，选项参数如下
+  
+  <img width="504" alt="image" src="https://user-images.githubusercontent.com/48283877/123051416-5b4b9500-d434-11eb-82f1-bf38fd9893f1.png">
 
+- mv
+
+  移动文件
+  
+  `mv 源地址/文件 目标地址/文件`
+  
+  其中，选项参数如下
+  
+  <img width="553" alt="image" src="https://user-images.githubusercontent.com/48283877/123051519-761e0980-d434-11eb-88c2-cd31875c13ad.png">
+
+- cat
+
+  阅览文件
+  
+  `cat 选项 目标文件地址`
+  
+  其中，选项参数如下
+  
+  <img width="559" alt="image" src="https://user-images.githubusercontent.com/48283877/123051610-8f26ba80-d434-11eb-9915-e2816247f19f.png">
+
+- ln
+
+  1.软链接(windows下的快捷方式创建)，如果删除原文件，则对应的软链接文件也会消失
+  
+  `ln -s test.txt test_softlink`
+
+  2.硬链接，相当于给原文件取了个别名，其实两者是同一个文件，删除二者中任何一个，另一个不会消失；对其中任何一个进行更改，另一个的内容也会随之改变，因为这两个本质上是同一个文件，只是名字不同
+  
+  `ln test.txt test_hardlink`
+  
 
 
 
