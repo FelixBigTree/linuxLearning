@@ -48,16 +48,63 @@ fdisk是创建和维护分区表的程序，兼容DOS类型的分区表、BSO或
   - 列出分区表
 
   `fdisk [选项] -l [<磁盘>]`
-  
+ 
+
 <img width="435" alt="image" src="https://user-images.githubusercontent.com/48283877/123366961-bbb11280-d5ab-11eb-8398-0e0013c74989.png">
 
 常用选项如下
+
 <img width="445" alt="image" src="https://user-images.githubusercontent.com/48283877/123367061-e56a3980-d5ab-11eb-999f-349e9474eb58.png">
 
+
 对某个磁盘分区，如 fdisk /dev/sda，则会出现以下菜单进行选择
+
 <img width="438" alt="image" src="https://user-images.githubusercontent.com/48283877/123367140-0763bc00-d5ac-11eb-85b4-107e2d4ddd48.png">
 
 其中，常用操作如下
+
 <img width="236" alt="image" src="https://user-images.githubusercontent.com/48283877/123367171-15b1d800-d5ac-11eb-91bc-c25c46e89d5b.png">
 
+
 ### 1.2.3 格式化
+#### 1.2.3.1 什么是格式化
+
+格式化一般是指逻辑格式化，它是指根据用户选定的文件系统，在磁盘的特定区域写入特定数据，以达到初始化磁盘或磁盘分区、清除原磁盘或磁盘分区中所有文件的一个操作。
+
+文件系统指操作系统用于明确存储设备或分区上的文件的方法和数据结构：即在存储设备上组织文件的方法
+
+#### 1.2.3.2 格式化常用命令
+
+`mkfs [选项] [-t <类型>] [文件系统选项] <设备> [<大小>]`
+
+创建一个Linux 文件系统
+
+<img width="381" alt="image" src="https://user-images.githubusercontent.com/48283877/123367442-83f69a80-d5ac-11eb-92e0-f76fe794f885.png">
+
+### 1.2.4 挂载
+#### 1.2.4.1 什么是挂载
+Linux 系统中一切皆文件，所有文件都放置在以根目录为树根的树形目录结构中。在 Linux 看来，任何硬件设备也都是文件，它们各有自己的一套文件系统（文件目录结构）。挂载，指的就是将设备文件中的顶级目录连接到 Linux 根目录下的某一目录，访问此目录就等同于访问设备文件
+
+#### 1.2.4.2 mount命令
+
+```
+ mount [-lhV]
+ mount -a [选项]
+ mount [选项] [--source] <源> | [--target] <目录>
+ mount [选项] <源> <目录>
+ mount <操作> <挂载点> [<目标>]
+```
+
+用默认方法将/dev/usb 挂载到 /mnt/usb
+
+`mount /dev/usb /mnt/usb`
+
+<img width="436" alt="image" src="https://user-images.githubusercontent.com/48283877/123367985-84436580-d5ad-11eb-8e6a-6df42e9abf61.png">
+
+提示挂载点不存在，先创建一个再重新挂载
+
+`mkdir -p /mnt/usb`
+
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/48283877/123368117-c5d41080-d5ad-11eb-942a-f9674f28e41a.png">
+
+提示特殊设备不存在
